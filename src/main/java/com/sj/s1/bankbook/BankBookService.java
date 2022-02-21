@@ -3,7 +3,9 @@ package com.sj.s1.bankbook;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BankBookService {
 	//Controller->service->DAO
 	//DAO로 데이터를 보내기전에 전처리 작업
