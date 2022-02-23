@@ -2,6 +2,7 @@ package com.sj.s1.bankbook;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,17 @@ public class BankBookController {
 	@Autowired
 	private BankBookService bankBookService;
 	
-
+	@RequestMapping(value="update", method=RequestMethod.POST)
+	public String update(BankBookDTO bankBookDTO)throws Exception{
+		int result = bankBookService.update(bankBookDTO);
+		return "redirect:./list";
+	}
+	
+	@RequestMapping(value="update", method=RequestMethod.GET)
+	public void update(BankBookDTO bankBookDTO,Model model)throws Exception{
+		bankBookDTO=bankBookService.detail(bankBookDTO);
+		model.addAttribute("dto",bankBookDTO);
+	}
 	
 	@RequestMapping("delete")
 	public String delete(BankBookDTO bankBookDTO)throws Exception{
