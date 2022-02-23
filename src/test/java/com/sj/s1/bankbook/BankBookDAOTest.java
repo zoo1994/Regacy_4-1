@@ -7,7 +7,9 @@ import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class BankBookDAOTest {
+import com.sj.s1.MyJunitTest;
+
+public class BankBookDAOTest extends MyJunitTest {
 
 	@Autowired
 	private BankBookDAO bankBookDAO;
