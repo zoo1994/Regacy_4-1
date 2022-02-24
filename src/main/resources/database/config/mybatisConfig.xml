@@ -10,6 +10,7 @@
 			alias="BankBookDTO" />
 		<typeAlias type="java.lang.Long" alias="Long" />
 		<typeAlias type="com.sj.s1.member.MemberDTO" alias="MemberDTO"/>
+		<typeAlias type="com.sj.s1.notice.NoticeDTO" alias="NoticeDTO"/>
 	</typeAliases>
 
 </configuration> 

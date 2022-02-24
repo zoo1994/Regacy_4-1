@@ -11,6 +11,7 @@ public class BankBookDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.sj.s1.bankbook.BankBookDAO.";
+
 	
 	public int update(BankBookDTO bankBookDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"update",bankBookDTO);
