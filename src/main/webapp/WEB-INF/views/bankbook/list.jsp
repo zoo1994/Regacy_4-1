@@ -20,13 +20,24 @@
 		</tr>
 		<c:forEach items="${list}" var="book">
 			<tr>
+				<td>${book.bookNumber}</td>
 				<td><a href="./detail?bookNumber=${book.bookNumber}">${book.bookName}</a></td>
 				<td>${book.bookRate}</td>
 				<td>${book.bookSale}</td>
 			</tr>
 		</c:forEach>
 	</table>
-
+	<div>
+		<c:if test="${pager.pre }">
+			<a href="./list?page=${pager.startNum-1 }">PreView</a>
+		</c:if>
+		<c:forEach begin="${pager.startNum}" end="${pager.lastNum }" step="1" var="i">
+		<a href="./list?page=${i}">${i}</a>
+		</c:forEach>
+		<c:if test="${pager.next }">
+			<a href="./list?page=${pager.lastNum+1}">Next</a>
+		</c:if>
+	</div>
 	<a href="./add">ADD</a>
 </body>
 </html>
