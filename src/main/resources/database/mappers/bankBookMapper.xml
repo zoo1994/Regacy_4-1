@@ -7,34 +7,56 @@
 <mapper namespace="com.sj.s1.bankbook.BankBookDAO">
 
 	<update id="update" parameterType="BankBookDTO">
-	 	update bankbook set bookName=#{bookName}, bookContents=#{bookContents}, bookSale=#{bookSale},bookRate=#{bookRate}
-	 	where bookNumber=#{bookNumber}
-	 									
+		update bankbook set bookName=#{bookName}, bookContents=#{bookContents},
+		bookSale=#{bookSale},bookRate=#{bookRate}
+		where bookNumber=#{bookNumber}
+
 	</update>
 
-	<select id="detail" parameterType="BankBookDTO" resultType="BankBookDTO">
+	<select id="detail" parameterType="BankBookDTO" 
+		resultType="BankBookDTO">
 		SELECT * FROM BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
 	</select>
 
-	<select id="total" resultType="Long">
-		SELECT COUNT(BOOKNUMBER) FROM BANKBOOK
+	<select id="total" resultType="Long" parameterType="pager">
+		SELECT COUNT(BOOKNUMBER) FROM
+		BANKBOOK
+		 WHERE BOOKNUMBER>0	AND 
+		
+		<choose>
+			<when test="kind=='col1'">BOOKNAME</when>
+			<otherwise>BOOKCONTENTS</otherwise>
+		</choose>
+		
+		 LIKE '%'||#{search}||'%'
 	</select>
 
 	<select id="list" parameterType="Pager" resultType="BankBookDTO">
 		SELECT * FROM
 		(SELECT ROWNUM R, B.* FROM
-		(SELECT * FROM BANKBOOK ORDER BY BOOKNUMBER DESC) B)
+		(SELECT * FROM BANKBOOK WHERE BOOKNUMBER>0	AND 
+		
+		<choose>
+			<when test="kind=='col1'">BOOKNAME</when>
+			<otherwise>BOOKCONTENTS</otherwise>
+		</choose>
+		
+		 LIKE '%'||#{search}||'%' ORDER BY BOOKNUMBER DESC) B)
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 
 	<insert id="add" parameterType="BankBookDTO">
-		insert into bankbook (booknumber, bookname, bookcontents, bookrate,
+		insert into bankbook (booknumber,
+		bookname, bookcontents, bookrate,
 		booksale)
-		values (bankbook_seq.nextval, #{bookName}, #{bookContents},
-		#{bookRate}, #{bookSale})
+		values
+		(bankbook_seq.nextval, #{bookName}, #{bookContents},
+		#{bookRate},
+		#{bookSale})
 	</insert>
 
 	<delete id="delete" parameterType="BankBookDTO">
-		delete bankbook where booknumber=#{bookNumber}
+		delete bankbook where
+		booknumber=#{bookNumber}
 	</delete>
 </mapper> 
