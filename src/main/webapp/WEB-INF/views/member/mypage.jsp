@@ -12,5 +12,6 @@
 	<h3>Id : ${member.id}</h3>
 	<h3>Email : ${member.email}</h3>
 	<h3>Phone : ${member.phone}</h3>
+	<a href="./update?id=${member.id}">Update</a>
 </body>
 </html>

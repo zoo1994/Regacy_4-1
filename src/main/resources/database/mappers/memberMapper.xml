@@ -20,5 +20,9 @@
 		select id,name,email,phone from member where id=#{id}
 	</select>
 	
+	<update id="update" parameterType="MemberDTO">
+	 	update member set pw=#{pw}, email=#{email}, phone=#{phone}
+	 	where id=#{id} 								
+	</update>
 	
 </mapper>

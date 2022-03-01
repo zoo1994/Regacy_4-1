@@ -21,6 +21,21 @@ public class MemberController {
 	@Autowired
 	private MemberService memberServiece;
 	
+	@RequestMapping(value="update", method=RequestMethod.POST)
+	public String update(MemberDTO memberDTO)throws Exception{
+		int result = memberServiece.update(memberDTO);
+		return "redirect:../";
+	}
+	
+	@RequestMapping(value="update",method=RequestMethod.GET)
+	public ModelAndView Update(MemberDTO memberDTO)throws Exception{
+		ModelAndView mv= new ModelAndView();
+		memberDTO=memberServiece.mypage(memberDTO);
+		mv.addObject("member",memberDTO);
+		mv.setViewName("member/update");
+		return mv;
+	}
+	
 	@RequestMapping(value = "mypage",method = RequestMethod.GET)
 	public String mypage(Model model, MemberDTO memberDTO, HttpSession session)throws Exception{
 		memberDTO = (MemberDTO)session.getAttribute("member");

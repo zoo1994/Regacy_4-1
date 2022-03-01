@@ -12,6 +12,18 @@ public class MemberDAOTest extends MyJunitTest {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	@Test
+	public void updateTest()throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setEmail("test1@naver.com");
+		memberDTO.setId("test121");
+		memberDTO.setPw("testpw1");
+		memberDTO.setName("testname1");
+		memberDTO.setPhone("010-21-2122");
+		int result = memberDAO.update(memberDTO);
+		assertEquals(1, result);
+	}
+	
 	//@Test
 	public void joinTest()throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
@@ -31,7 +43,7 @@ public class MemberDAOTest extends MyJunitTest {
 		memberDTO=memberDAO.login(memberDTO);
 		assertNotNull(memberDTO);
 	}
-	@Test
+	//@Test
 	public void mypageTest()throws Exception{
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id112");
