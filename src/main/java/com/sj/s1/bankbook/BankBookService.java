@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sj.s1.util.Pager;
+
 @Service
 public class BankBookService {
 	//Controller->service->DAO
@@ -36,8 +38,11 @@ public class BankBookService {
 	}
 	
 	//list
-	public List<BankBookDTO> list()throws Exception{
-		List<BankBookDTO> ar = bankBookDAO.list();
-				return ar;
+	public List<BankBookDTO> list(Pager pager)throws Exception{
+		pager.makeRow();
+		Long totalCount = bankBookDAO.total(pager);
+		pager.makeNum(totalCount);
+		List<BankBookDTO> ar = bankBookDAO.list(pager);
+		return ar;
 	}
 }
