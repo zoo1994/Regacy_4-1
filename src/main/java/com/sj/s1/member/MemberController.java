@@ -97,4 +97,9 @@ public class MemberController {
 		int result = memberServiece.join(memberDTO);
 		return "redirect:../";
 	}
+	
+	@RequestMapping(value="joinCheck", method=RequestMethod.GET)
+	public void joinCheck()throws Exception{
+		
+	}
 }
