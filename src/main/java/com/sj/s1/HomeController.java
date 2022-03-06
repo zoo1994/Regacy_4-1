@@ -28,7 +28,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, @CookieValue(value="remember", required = false) String value)throws Exception {
-		System.out.println("value ="+value);
 		return "index";
 	}
 	

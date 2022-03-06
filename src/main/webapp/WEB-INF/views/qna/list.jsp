@@ -10,19 +10,18 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-	<h1>Notice List page</h1>
+	<h1>Qna List page</h1>
 	
 	<table>
 		<tr>
-			<td>Num</td><td>Title</td><td>Writer</td><td>Date</td><td>Hit</td>
+			<td>Num</td><td>Title</td><td>Contents</td><td>Writer</td>
 		</tr>
 		<c:forEach items="${list}" var="dto">
 		<tr>
 			<td>${dto.num}</td>
 			<td><a href="./detail?num=${dto.num}">${dto.title}</a></td>
+			<td>${dto.contents}</td>
 			<td>${dto.writer}</td>
-			<td>${dto.regDate}</td>
-			<td>${dto.hit}</td>
 		</tr>
 		
 		</c:forEach>

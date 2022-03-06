@@ -7,14 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Notice Detail Page</h1>
+	<h1>Qna Detail Page</h1>
 	
+	<h3>Num : ${dto.num}</h3>
 	<h3>Title : ${dto.title}</h3>
 	<h3>Writer : ${dto.writer}</h3>
 	<h3>Contents : ${dto.contents}</h3>
-
+	<h3>RegDate : ${dto.regDate}</h3>
+	<h3>Hit : ${dto.hit}</h3>
+	<h3>Ref : ${dto.ref}</h3>
+	<h3>Step : ${dto.step}</h3>
+	<h3>Depth : ${dto.depth}</h3>
 	
 	<a href="./list">List</a>
 	<a href="./update?num=${dto.num}">Update</a>
+	<a href="./delete?num=${dto.num}">Delete</a>
 </body>
 </html>

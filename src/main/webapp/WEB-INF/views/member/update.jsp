@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Member Join Page</h1>
+<h1>Member Update Page</h1>
 	<div>
 		<form action="./update" method="post">
 			<fieldset>
