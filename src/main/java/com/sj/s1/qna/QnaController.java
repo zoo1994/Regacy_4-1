@@ -47,7 +47,7 @@ public class QnaController {
 //		mv.setViewName("qna/update");
 //		return mv;
 //	}
-//	
+////	
 	@RequestMapping(value="list",method=RequestMethod.GET)
 	public ModelAndView list()throws Exception{
 		ModelAndView mv = new ModelAndView();

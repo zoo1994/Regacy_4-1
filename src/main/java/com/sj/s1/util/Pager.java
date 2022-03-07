@@ -6,7 +6,7 @@ public class Pager {
 	//page번호
 	private Long page;
 	//시작번호
-	private Long startRow;
+	private Long startRow; //1페이지에 1번부터 10번 1번 startRow 10번 lastRow
 	//끝번호
 	private Long lastRow;
 	//검색변수
@@ -14,7 +14,7 @@ public class Pager {
 	private String kind;
 	
 	//----------------------- jsp사용변수
-	private Long startNum;
+	private Long startNum; // 하단에 1페이지~10페이지 1페이지 startnum
 	private Long lastNum;
 	private boolean pre;
 	private boolean next;
