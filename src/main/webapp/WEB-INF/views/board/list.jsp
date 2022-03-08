@@ -10,7 +10,7 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-	<h1>Notice List page</h1>
+	<h1>${board} List page</h1>
 	
 	<table>
 		<tr>
@@ -19,7 +19,11 @@
 		<c:forEach items="${list}" var="dto">
 		<tr>
 			<td>${dto.num}</td>
-			<td><a href="./detail?num=${dto.num}">${dto.title}</a></td>
+			<td><a href="./detail?num=${dto.num}">
+			<c:catch>
+			<c:forEach begin="1" end="${dto.depth}">&nbsp</c:forEach>
+			</c:catch>
+			${dto.title}</a></td>
 			<td>${dto.writer}</td>
 			<td>${dto.regDate}</td>
 			<td>${dto.hit}</td>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Notice Add Page</h1>
+	<h1>${board} Add Page</h1>
 	
 	<form action="./update" method="post">
 		<input type ="hidden" name =  "num" value="${dto.num }">

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Notice Add Page</h1>
+	<h1>${board } Reply Page</h1>
 	
 	<form action="./add" method="post">
 		Title<input type="text" name="title">

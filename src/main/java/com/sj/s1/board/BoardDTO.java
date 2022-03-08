@@ -1,8 +1,8 @@
-package com.sj.s1.notice;
+package com.sj.s1.board;
 
 import java.sql.Date;
 
-public class NoticeDTO {
+public class BoardDTO {
 	private Long num;
 	private String title;
 	private String writer;
