@@ -53,9 +53,18 @@ public class BankBookController {
 	}
 	
 	@RequestMapping(value="detail", method= RequestMethod.GET)
-	public void detail(BankBookDTO bankBookDTO, Model model)throws Exception{
+	public String detail(BankBookDTO bankBookDTO, Model model)throws Exception{
 		bankBookDTO= bankBookService.detail(bankBookDTO);
-		model.addAttribute("dto", bankBookDTO);
+		String view = "common/result";
+		if(bankBookDTO!=null) {
+			view="bankbook/detail";
+			model.addAttribute("dto", bankBookDTO);
+		}else {
+			model.addAttribute("message","없는 번호입니다.");
+			model.addAttribute("path","./list");
+		}
+		
+		return view;
 	}
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public ModelAndView list(ModelAndView mv, Pager pager)throws Exception{
