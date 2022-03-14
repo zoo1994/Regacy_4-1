@@ -48,6 +48,6 @@
 			<button id="btn">Join</button>
 		</div>
 	</div>
-	<script src="../resources/js/joinCheck.js"></script>
+	<!-- <script src="../resources/js/joinCheck.js"></script> -->
 </body>
 </html>

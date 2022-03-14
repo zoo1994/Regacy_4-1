@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sj.s1.board.BoardDTO;
@@ -22,7 +23,7 @@ public class NoticeController {
 	
 	@ModelAttribute("board")
 	public String board() {
-		return "Notice";
+		return "notice";
 	}
 	
 	@RequestMapping(value="delete", method = RequestMethod.GET)
@@ -47,9 +48,10 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "add", method=RequestMethod.POST)
-	public ModelAndView add(NoticeDTO noticeDTO)throws Exception{
+	public ModelAndView add(NoticeDTO noticeDTO, MultipartFile[] files)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = noticeService.add(noticeDTO);
+		int result = noticeService.add(noticeDTO,files);
+		System.out.println(files[0].getOriginalFilename());
 		mv.setViewName("redirect:./list");
 		return mv;
 	}

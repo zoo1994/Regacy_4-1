@@ -88,7 +88,7 @@ public class MemberController {
 	public void login(Model model,@CookieValue(value="remember",defaultValue="",required = false)String rememberId) throws Exception {
 		model.addAttribute("rememberId",rememberId);
 	}
-
+	
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public void join() throws Exception {
 	}
@@ -98,10 +98,8 @@ public class MemberController {
 		int result = memberServiece.join(memberDTO,photo);
 		System.out.println(photo.getOriginalFilename());
 		System.out.println(photo.getSize());
-		
 		return "redirect:../";
 	}
-	
 	
 	@RequestMapping(value="joinCheck", method=RequestMethod.GET)
 	public void joinCheck()throws Exception{

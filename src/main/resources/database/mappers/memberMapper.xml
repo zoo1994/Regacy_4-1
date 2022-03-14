@@ -6,6 +6,10 @@
 
 <mapper namespace="com.sj.s1.member.MemberDAO">
 	
+	<insert id="addFile" parameterType="MemberFileDTO">
+		INSERT INTO MEMBERFILE (FILENUM, ID, FILENAME, ORINAME)
+		VALUES (FILE_SEQ.NEXTVAL,#{id},#{fileName},#{oriName})
+	</insert>	
 
 	<insert id = "join" parameterType="MemberDTO">
 		insert into member (id, pw, name, phone,email)
@@ -16,9 +20,26 @@
 		select id,name from member where id=#{id} and pw=#{pw}
 	</select>
 	
-	<select id="mypage" parameterType="MemberDTO" resultType="MemberDTO">
-		select id,name,email,phone from member where id=#{id}
+	<select id="mypage" parameterType="MemberDTO" resultMap="mypageResult">
+       SELECT ID, M.NAME, M.PHONE, M.EMAIL, MF.FILENUM, MF.FILENAME, MF.ORINAME
+       FROM MEMBER M
+             LEFT JOIN
+          MEMBERFILE MF
+          USING(id)
+       WHERE ID =#{id}
 	</select>
+	
+	<resultMap type="MemberDTO" id="mypageResult">
+		<id column="id" property="id"/><!-- pk -->
+		<result column="name" property="name"/><!-- pk를 제외한 나머지 -->
+		<result column="email" property="email"/>
+		<result column="phone" property="phone"/>
+		<association property="memberFileDTO" javaType="MemberFileDTO">
+			<id column="fileNum" property="fileNum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriNum" property="oriNum"/>
+		</association>
+	</resultMap>
 	
 	
 </mapper>

@@ -6,6 +6,7 @@ public class MemberDTO {
 	private String pw;
 	private String email;
 	private String phone;
+	private MemberFileDTO memberFileDTO;
 	public String getName() {
 		return name;
 	}
@@ -35,6 +36,12 @@ public class MemberDTO {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public MemberFileDTO getMemberFileDTO() {
+		return memberFileDTO;
+	}
+	public void setMemberFileDTO(MemberFileDTO memberFileDTO) {
+		this.memberFileDTO = memberFileDTO;
 	}
 	
 }

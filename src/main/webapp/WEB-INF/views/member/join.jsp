@@ -47,7 +47,8 @@
 				<input type="file" name="photo" id="photo">
 			</fieldset>
 			<fieldset>
-				<button type="button" id="btn">Join</button>
+<!-- 최종완성시사용			<button type="button" id="btn">Join</button> -->
+				<button type="submit" id="btn">Join</button>
 			</fieldset>
 		</form>
 	</div>

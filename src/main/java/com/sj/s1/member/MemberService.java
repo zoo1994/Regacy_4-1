@@ -26,10 +26,16 @@ public class MemberService {
 	
 	public int join(MemberDTO memberDTO,MultipartFile photo)throws Exception{
 		//1. 파일을 HDD에 저장
-		
+		int result = memberDAO.join(memberDTO);
+		String fileName=fileManager.save(photo, "/resources/upload/member/");
 		//2. 정보를 DB에 저장
-		fileManager.save(photo, "resources/upload/member/");
-		return memberDAO.join(memberDTO);
+		MemberFileDTO memberFileDTO = new MemberFileDTO();
+		memberFileDTO.setId(memberDTO.getId());
+		memberFileDTO.setFileName(fileName);
+		memberFileDTO.setOriName(photo.getOriginalFilename());
+		result = memberDAO.addFile(memberFileDTO);
+		
+		return result; //memberDAO.join(memberDTO);
 	}
 	
 }

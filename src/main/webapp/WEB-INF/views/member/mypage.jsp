@@ -12,6 +12,7 @@
 	<h3>Id : ${member.id}</h3>
 	<h3>Email : ${member.email}</h3>
 	<h3>Phone : ${member.phone}</h3>
-	<img alt="" src="">
+	<img alt="" src="../resources/upload/member/${member.memberFileDTO.fileName}">
+	<h3>${member.memberFileDTO.oriName}</h3>
 </body>
 </html>

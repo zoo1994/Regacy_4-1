@@ -6,6 +6,8 @@ import com.sj.s1.util.Pager;
 
 public interface BoardDAO {
 	
+	public int addFile(BoardFileDTO boardFileDTO)throws Exception;
+	
 	public BoardDTO detail(BoardDTO boardDTO)throws Exception;
 	
 	public List<BoardDTO> list(Pager pager)throws Exception;
