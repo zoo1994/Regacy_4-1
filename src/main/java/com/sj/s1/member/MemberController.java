@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,6 +22,20 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberServiece;
+	
+	@ModelAttribute("board")
+	public String getBoard() {
+		return "member";
+	}
+	
+	@RequestMapping(value = "photoDown",method = RequestMethod.GET)
+	public ModelAndView fileDown(MemberFileDTO memberFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("fileDown");
+		memberFileDTO=memberServiece.detailFile(memberFileDTO);
+		mv.addObject("file",memberFileDTO);
+		return mv;
+	}
 	
 	@RequestMapping(value = "mypage",method = RequestMethod.GET)
 	public String mypage(Model model, MemberDTO memberDTO, HttpSession session)throws Exception{

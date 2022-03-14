@@ -13,6 +13,9 @@
 	<h3>Email : ${member.email}</h3>
 	<h3>Phone : ${member.phone}</h3>
 	<img alt="" src="../resources/upload/member/${member.memberFileDTO.fileName}">
+	<a href="./photoDown?fileNum=${member.memberFileDTO.fileNum}">
+	${member.memberFileDTO.oriName}
+	</a>
 	<h3>${member.memberFileDTO.oriName}</h3>
 </body>
 </html>

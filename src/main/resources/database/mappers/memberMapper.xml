@@ -6,6 +6,11 @@
 
 <mapper namespace="com.sj.s1.member.MemberDAO">
 	
+	<select id="detailFile" parameterType="MemberFileDTO" resultType="MemberFileDTO">
+		SELECT * FROM MEMBERFILE
+		WHERE FILENUM=#{fileNum}
+	</select>
+	
 	<insert id="addFile" parameterType="MemberFileDTO">
 		INSERT INTO MEMBERFILE (FILENUM, ID, FILENAME, ORINAME)
 		VALUES (FILE_SEQ.NEXTVAL,#{id},#{fileName},#{oriName})
@@ -37,7 +42,7 @@
 		<association property="memberFileDTO" javaType="MemberFileDTO">
 			<id column="fileNum" property="fileNum"/>
 			<result column="fileName" property="fileName"/>
-			<result column="oriNum" property="oriNum"/>
+			<result column="oriName" property="oriName"/>
 		</association>
 	</resultMap>
 	

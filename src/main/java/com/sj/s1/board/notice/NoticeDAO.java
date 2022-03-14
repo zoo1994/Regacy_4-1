@@ -17,6 +17,10 @@ public class NoticeDAO implements BoardDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.sj.s1.board.notice.NoticeDAO.";
 	
+	public NoticeFileDTO detailFile(NoticeFileDTO noticeFileDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"detailFile",noticeFileDTO);
+	}
+	
 	@Override
 	public int addFile(BoardFileDTO boardFileDTO) throws Exception {
 		// TODO Auto-generated method stub

@@ -6,6 +6,11 @@
 
 <mapper namespace="com.sj.s1.board.notice.NoticeDAO">
 	
+	<select id="detailFile" parameterType="NoticeFileDTO" resultType="NoticeFileDTO">
+		SELECT * FROM NOTICEFILE
+		WHERE FILENUM = #{fileNum}
+	</select>
+
 	<insert id="addFile" parameterType="BoardFileDTO">
 		INSERT INTO NOTICEFILE (FILENUM, num, FILENAME, ORINAME)
 		VALUES (FILE_SEQ.NEXTVAL,#{num},#{fileName},#{oriName})
