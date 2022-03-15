@@ -11,15 +11,15 @@
 	
 	<form action="./add" method="post" id="frm" enctype="multipart/form-data">
 		Title<input type="text" name="title" id="title" >
-		Writer<input type="text" name="writer" id = "writer">
+		Writer<input type="text" name="writer" value="${member.id}" readonly>
 		Contents<textarea name="contents" rows="" cols=""></textarea>
 		<div>
 			<input type="file" name="files">
 			<input type="file" name="files">
 			<input type="file" name="files">
 		</div>
-		<button type="button" id = "btn">ADD</button>
+		<button type="submit" id = "btn">ADD</button>
 	</form>
-	<script src="../resources/js/notice.js"></script>
+	<!--  <script src="../resources/js/notice.js"></script> -->
 </body>
 </html>

@@ -6,7 +6,7 @@ let titleCheck=false;
 let writerCheck=false;
 
 btn.addEventListener("click",function(){
-    if(titleCheck&&writerCheck){
+    if(titleCheck){
         frm.submit();
     }else{
         alert("필수값을 입력하세요.")
