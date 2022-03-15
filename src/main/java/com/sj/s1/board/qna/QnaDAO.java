@@ -13,6 +13,11 @@ import com.sj.s1.util.Pager;
 
 @Repository
 public class QnaDAO implements BoardDAO {
+	
+	public List<QnaFileDTO> listFile(BoardDTO boardDTO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"listFile",boardDTO);
+	}
+	
 	@Override
 	public int addFile(BoardFileDTO boardFileDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"addFile",boardFileDTO);
