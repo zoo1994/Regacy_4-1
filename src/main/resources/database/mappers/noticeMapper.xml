@@ -6,6 +6,11 @@
 
 <mapper namespace="com.sj.s1.board.notice.NoticeDAO">
 	
+	<select id="listFile" parameterType="boardDTO" resultType="NoticeFileDTO">
+		SELECT * FROM NOTICEFILE
+		WHERE NUM = #{num}
+	</select>
+	
 	<select id="detailFile" parameterType="NoticeFileDTO" resultType="NoticeFileDTO">
 		SELECT * FROM NOTICEFILE
 		WHERE FILENUM = #{fileNum}
