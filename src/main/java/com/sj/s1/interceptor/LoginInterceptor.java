@@ -15,6 +15,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		System.out.println("Login Interceptor");
 		MemberDTO memberDTO=(MemberDTO)request.getSession().getAttribute("member");
 		
 		boolean check = true;
