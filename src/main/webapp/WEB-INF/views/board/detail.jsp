@@ -21,7 +21,13 @@
 			</a>
 		</c:forEach>
 	</div>
-	
+	<hr>
+	<form action="../noticeReply/add" method="post">
+		<input type="hidden" name="num" id="num" value="${dto.num }">
+		<input type="text" readonly name="writer" id="writer" value="${member.id}">
+		<textarea rows="" cols="" name="contents" id="contents"></textarea>
+		<button type="button" id="reply">Reply</button>
+	</form>
 	<a href="./list">List</a>
 	<c:if test="${member.id eq dto.writer}">
 	<a href="./delete?num=${dto.num}">Delete</a>
@@ -30,5 +36,6 @@
 	<c:if test="${board ne 'Notice'}">
 	<a href="./reply?num=${dto.num}">Reply</a>
 	</c:if>
+	<script src="../resources/js/noticeReply.js"></script>
 </body>
 </html>
