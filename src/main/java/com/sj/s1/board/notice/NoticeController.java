@@ -79,6 +79,10 @@ public class NoticeController {
 	@RequestMapping(value = "detail", method=RequestMethod.GET)
 	public ModelAndView detail(NoticeDTO noticeDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
+//		String a = request.getParameter("num");
+//		Long num = Long.parseLong(a);
+//		BoardDTO boardDTO = new BoardDTO();
+//		boardDTO.setNum(num);
 		BoardDTO boardDTO = noticeService.detail(noticeDTO);
 		mv.addObject("dto", boardDTO);
 		mv.setViewName("board/detail");

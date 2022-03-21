@@ -13,13 +13,22 @@
 		Title<input type="text" name="title" id="title" >
 		Writer<input type="text" name="writer" value="${member.id}" readonly>
 		Contents<textarea name="contents" rows="" cols=""></textarea>
+		<div id="fileResult">
+					<!--
+			<div>
+				<input type="file" name="files"><button type="button">DEL</button>
+			</div>
+			<input type="file" name="files">
+			<input type="file" name="files">
+			-->
+		</div>
 		<div>
-			<input type="file" name="files">
-			<input type="file" name="files">
-			<input type="file" name="files">
+			<button type="button" id="fileAdd">FileAdd</button>
+			<button type="button" class="del">Sample DEL</button>
 		</div>
 		<button type="submit" id = "btn">ADD</button>
 	</form>
+	<script src="../resources/js/file.js"></script>
 	<!--  <script src="../resources/js/notice.js"></script> -->
 </body>
 </html>
