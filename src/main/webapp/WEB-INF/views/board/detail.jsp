@@ -28,6 +28,11 @@
 		<textarea rows="" cols="" name="contents" id="contents"></textarea>
 		<button type="button" id="reply">Reply</button>
 	</form>
+
+	
+	<table id="replyResult">
+	
+	</table>
 	<a href="./list">List</a>
 	<c:if test="${member.id eq dto.writer}">
 	<a href="./delete?num=${dto.num}">Delete</a>

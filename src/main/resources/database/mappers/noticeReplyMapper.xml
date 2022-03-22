@@ -9,6 +9,10 @@
 		INSERT INTO NOTICEREPLY(REPLYNUM, NUM,WRITER, CONTENTS, REGDATE)
 		VALUES (NOTICE_SEQ.NEXTVAL, #{num}, #{writer}, #{contents},SYSDATE )
 	</insert>
+	
+	<delete id="delete">
+		delete noticereply where num=#{num}
+	</delete>
 
 	<select id="list" parameterType="NoticeReplyDTO" resultType="NoticeReplyDTO">
 		SELECT * FROM NOTICEREPLY
