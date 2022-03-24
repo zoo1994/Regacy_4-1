@@ -5,6 +5,26 @@ const contents = document.querySelector("#contents");
 const replyResult = document.querySelector("#replyResult");
 const del=document.querySelectorAll(".del");
 
+//update
+replyResult.addEventListener("click",function(event){
+    if(event.target.clasList.contains('update')){
+        //console.log(event.target.parentNode.previousSibling.previousSibling.previousSibling.previousSibling);
+        let num = event.target.getAttribute('data=index');
+        let replyNum=document.querySelector("#up"+num);
+        let text = replyNum.innerText;
+        let tx = document.createElement('textarea');
+        tx.setAttribute("id","update"+replyNum);
+        replyNum.innerHTML=tx;
+        console.log('update');
+    }
+})
+
+replyResult.addEventListener("change",function(event){
+    
+})
+
+
+//delete
 replyResult.addEventListener("click",function(event){
     if(event.target.classList.contains('del')){
         let replyNum= event.target.getAttribute("data-num")
